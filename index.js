@@ -18,7 +18,7 @@ db.connect(function(err) {
   console.log("Connected!");
 });
 
-app.get('/getAllUsers', (req, res) => {
+app.get('/getUsers', (req, res) => {
     const sql = "SELECT * FROM usuarios";
     db.query(sql, function(error, data, fields){
         if (error) throw error;
@@ -30,7 +30,8 @@ app.get('/getAllUsers', (req, res) => {
     })
 })
 
-app.post('/logon', (req, res) => {
+
+app.post('/createUser', (req, res) => {
   const sql = "INSERT INTO usuarios(nome, email) VALUES (?)";
   const usuario = [req.body.nome, req.body.email]
 
@@ -39,6 +40,19 @@ app.post('/logon', (req, res) => {
     res.json({
         "status": 201,
         "message": "User registered with success."
+    })
+})
+})
+
+app.delete('/deleteUser', (req, res) => {
+  const updateValues = [req.body.id]
+  const sql = 'DELETE FROM usuarios WHERE id=?';
+
+  db.query(sql, [updateValues], function(error, data, fields){
+    if (error) throw error;
+    res.json({
+        "status": 200,
+        "message": "User deleted with success."
     })
 })
 })
