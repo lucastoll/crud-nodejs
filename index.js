@@ -44,6 +44,19 @@ app.post('/createUser', (req, res) => {
 })
 })
 
+app.put('/updateUser', (req, res) => {
+  const updateValues = [req.body.attributeName, req.body.attributeValue, req.body.id]
+  const sql = `UPDATE usuarios SET ${updateValues[0]}='${updateValues[1]}' WHERE id=${updateValues[2]}`;
+
+  db.query(sql, [updateValues], function(error, data, fields){
+    if (error) throw error;
+    res.json({
+        "status": 200,
+        "message": "User updated with success."
+    })
+})
+})
+
 app.delete('/deleteUser', (req, res) => {
   const updateValues = [req.body.id]
   const sql = 'DELETE FROM usuarios WHERE id=?';
