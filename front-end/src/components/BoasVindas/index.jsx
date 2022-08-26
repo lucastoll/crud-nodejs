@@ -7,6 +7,7 @@ import { ContainerStageBackground } from '../Shared/styles';
 
 import MicrophonePng from "../../../public/components/BoasVindas/Microphone.png";
 import MicrophoneVector from "../../../public/components/BoasVindas/FrameMicrophoneIcon.png";
+import Link from 'next/link';
 
 export default function BoasVindas() {
     const [width, setWidth] = useState();
@@ -37,9 +38,11 @@ export default function BoasVindas() {
             <Span>
               Só não vá morrer de rir! kkk
             </Span>
-            <Button>
-              Começar
-            </Button>
+            <Link href="/piadas">            
+                <Button>
+                Começar
+                </Button>
+            </Link>
             {
               (width >= 1024 && height >= 670) &&
               <MicrophonePngWrapperAbsolute>
