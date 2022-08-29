@@ -1,90 +1,53 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
-import { useState } from "react";
 import styled from "styled-components";
 
-import { ContainerStageBackground } from "../components/Shared/styles";
+import { ContainerStageBackground } from "../components/Shared/ContainerStageBackground";
+import UtilsWrapper from "../components/UtilsWrapper";
+
 import c from "../../public/styles/colors.json";
-import SearchbarIcon from "../../public/components/SearchBar/SearchIcon.png";
-import OrderIcon from "../../public/components/Popover/OrderIcon.png";
-
-import * as RadixPopover from "@radix-ui/react-popover";
-
-export const Popover = (props) => {
-  const { children } = props;
-  return <RadixPopover.Root>{children}</RadixPopover.Root>;
-};
-
-const PopoverTrigger = styled(RadixPopover.Trigger)`
-  background: #E9E4DA;
-  border: 2px solid #DCD8D0;
-  padding: 9px 19px 9px 60px;
-  font-family: "AvenirBook";
-  color: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  background-image: url(${OrderIcon.src});
-  background-position: 15px center;
-  background-repeat: no-repeat;
-`
-
-const PopoverArrow = styled(RadixPopover.Arrow)`
-  fill: fuchsia;
-`;
-
-const LocalPopoverContent = (props) => {
-  const { children, ...rest } = props;
-  return (
-    <RadixPopover.Content {...rest}>
-      {children}
-      <PopoverArrow />
-    </RadixPopover.Content>
-  );
-};
-
-export const PopoverContent = styled(LocalPopoverContent)`
-  background-color: fuchsia;
-  padding: 16px;
-`;
 
 const ContainerStageBackgroundPiadas = styled(ContainerStageBackground)`
+  height: 100vh;
   padding: 0px;
-`;
 
-const UtilsWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
+  @media screen and (min-width: 1024px) {
+    padding: 65px 135px;
+  }
 
-const Searchbar = styled.input`
-  background: #E9E4DA;
-  background-image: url(${SearchbarIcon.src});
-  background-position: 15px center;
-  background-repeat: no-repeat;
-  border-radius: 8px;
-  border: 2px solid #DCD8D0;
-  margin-bottom: 16px;
-  color: ${c.grey};
-  font-size: 16px;
-  outline: none;
-  padding: 9px 9px 9px 59px;
-  width: 100%;
-
-  &::placeholder {
-    color: rgba(0, 0, 0, 0.3);
+  @media screen and (min-width: 1440px) {
+    padding: 130px 270px;
   }
 `;
 
-const Wrapper = styled.div`
+const LightBrownMobileWrapper = styled.div`
   background: ${c.lightBrown};
   width: 100%;
   min-height: 100vh;
   padding: 40px 30px;
   height: fit-content;
   color: black;
+
+  @media screen and (min-width: 1024px) {
+    min-height: auto;
+    height: 100%;
+    border-radius: 30px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 60px 150px 0px 150px;
+  }
 `;
 
 export default function Piadas() {
   const [searchBarContent, setSearchBarContent] = useState("");
+  const [order, setOrder] = useState("");
+
+  useEffect(() => {
+    console.log(order, searchBarContent);
+  
+  }, [order, searchBarContent]);
+  
 
   return (
     <div>
@@ -98,22 +61,14 @@ export default function Piadas() {
       </Head>
       <main>
         <ContainerStageBackgroundPiadas>
-          <Wrapper>
-            <UtilsWrapper>
-            <Searchbar
-              type="text"
-              placeholder="Pesquisar piada"
-              value={searchBarContent}
-              onChange={(event) => setSearchBarContent(event.target.value)}
-            ></Searchbar>
-            <Popover>
-              <PopoverTrigger>
-                 Ordenar
-              </PopoverTrigger>
-              <PopoverContent>The content</PopoverContent>
-            </Popover>
-            </UtilsWrapper>
-          </Wrapper>
+          <LightBrownMobileWrapper>
+            <UtilsWrapper
+              searchBarContent={searchBarContent}
+              setSearchBarContent={setSearchBarContent}
+              order={order}
+              setOrder={setOrder}
+            />
+          </LightBrownMobileWrapper>
         </ContainerStageBackgroundPiadas>
       </main>
     </div>

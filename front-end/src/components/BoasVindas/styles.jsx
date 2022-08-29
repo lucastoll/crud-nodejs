@@ -71,19 +71,3 @@ export const Span = styled.p`
   color: ${c.secondary};
   font-family: "AvenirBlack";
 `
-
-export const Button = styled.button`
-  background-color: ${c.primary};
-  border-radius: 8px;
-  border: none;
-  color: ${c.white};
-  font-family: "AvenirRoman";
-  font-size: 20px;
-  outline: none;
-  padding: 14px 0;
-  width: 100%;
-
-  @media screen and (min-width: 1024px) {
-    max-width: 280px;
-  }
-`

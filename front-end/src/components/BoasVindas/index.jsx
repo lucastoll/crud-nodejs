@@ -1,13 +1,14 @@
 import React from 'react'
-import Image from "next/image";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from 'next/link';
 
-import { Button, Frame, MicrophonePngContainer, MicrophonePngWrapperAbsolute, MicrophoneVectorContainer, Span, Text, Title } from './styles';
-import { ContainerStageBackground } from '../Shared/styles';
+import { Frame, MicrophonePngContainer, MicrophonePngWrapperAbsolute, MicrophoneVectorContainer, Span, Text, Title } from './styles';
+import { ContainerStageBackground } from '../Shared/ContainerStageBackground';
+import { Button } from '../Shared/Button';
 
 import MicrophonePng from "../../../public/components/BoasVindas/Microphone.png";
 import MicrophoneVector from "../../../public/components/BoasVindas/FrameMicrophoneIcon.png";
-import Link from 'next/link';
 
 export default function BoasVindas() {
     const [width, setWidth] = useState();
@@ -39,7 +40,7 @@ export default function BoasVindas() {
               Só não vá morrer de rir! kkk
             </Span>
             <Link href="/piadas">            
-                <Button>
+                <Button maxWidth="280px">
                 Começar
                 </Button>
             </Link>
