@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as RadixPopover from "@radix-ui/react-popover";
 import styled from "styled-components";
 
 import OrderIcon from "../../../../public/components/Popover/OrderIcon.png";
 
-export const PopoverContainer = (props) => {
+  export const PopoverContainer = (props) => {
     const { children } = props;
     return <RadixPopover.Root>{children}</RadixPopover.Root>;
   };
@@ -58,7 +58,9 @@ export const PopoverContainer = (props) => {
     }
   `;
 
-export default function Popover({order, setOrder}) {
+  
+export default function Popover({order, setOrder, jokes, setJokes}) {
+  
   return (
     <PopoverContainer style={{width: "100%"}}>
         <PopoverTrigger>
@@ -66,12 +68,12 @@ export default function Popover({order, setOrder}) {
         </PopoverTrigger>
         <PopoverContent>
             <div>
-                <input type="radio" name="orderRadio" value="opcao1" onChange={(event) => setOrder(event.target.value)} />
-                <p>Opcao1</p>
+                <input type="radio" name="orderRadio" value="likes" onChange={(event) => setOrder(event.target.value)} />
+                <p>Likes</p>
             </div>
             <div>
-                <input type="radio" name="orderRadio" value="opcao2" onChange={(event) => setOrder(event.target.value)} />
-                <p>Opcao2</p>
+                <input type="radio" name="orderRadio" value="dislikes" onChange={(event) => setOrder(event.target.value)} />
+                <p>Deslikes</p>
             </div>
         </PopoverContent>
     </PopoverContainer>

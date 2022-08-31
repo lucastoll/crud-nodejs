@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import c from "../../../public/styles/colors.json";
 import SearchbarIcon from "../../../public/components/SearchBar/SearchIcon.png";
+import Link from "next/link";
 
 import { Button } from "../../components/Shared/Button";
 import Popover from './Popover';
@@ -48,7 +49,7 @@ const Searchbar = styled.input`
 `;
 
 
-export default function UtilsWrapper({searchBarContent, setSearchBarContent, order, setOrder}) {
+export default function UtilsWrapper({searchBarContent, setSearchBarContent, order, setOrder, jokes, setJokes}) {
   return (
     <Wrapper>
         <Searchbar
@@ -58,10 +59,12 @@ export default function UtilsWrapper({searchBarContent, setSearchBarContent, ord
         onChange={(event) => setSearchBarContent(event.target.value)}
         ></Searchbar>
         <div className='popoverButtonContainer'>
-        <Popover order={order} setOrder={setOrder} />        
-        <Button width="50%" backgroundColor="#CD1C2F">
-            Criar piada
-        </Button>
+        <Popover order={order} setOrder={setOrder} jokes={jokes} setJokes={setJokes} /> 
+        <Link href="/">
+          <Button width="50%" backgroundColor="#CD1C2F">
+              Criar piada
+          </Button>
+        </Link>       
         </div>
     </Wrapper>
   )
