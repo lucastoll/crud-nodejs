@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import * as RadixPopover from "@radix-ui/react-popover";
 import styled from "styled-components";
 
 import OrderIcon from "../../../../public/components/Popover/OrderIcon.png";
 
-  export const PopoverContainer = (props) => {
+ const PopoverContainer = (props) => {
     const { children } = props;
     return <RadixPopover.Root>{children}</RadixPopover.Root>;
   };

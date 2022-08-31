@@ -7,10 +7,10 @@ import { Frame, MicrophonePngContainer, MicrophonePngWrapperAbsolute, Microphone
 import { ContainerStageBackground } from '../Shared/ContainerStageBackground';
 import { Button } from '../Shared/Button';
 
-import MicrophonePng from "../../../public/components/BoasVindas/Microphone.png";
-import MicrophoneVector from "../../../public/components/BoasVindas/FrameMicrophoneIcon.png";
+import MicrophonePng from "../../../public/components/Welcome/Microphone.png";
+import MicrophoneVector from "../../../public/components/Welcome/FrameMicrophoneIcon.png";
 
-export default function BoasVindas() {
+export default function Welcome() {
     const [width, setWidth] = useState();
     const [height, setHeight] = useState();
 
@@ -39,7 +39,7 @@ export default function BoasVindas() {
             <Span>
               Só não vá morrer de rir! kkk
             </Span>
-            <Link href="/piadas">            
+            <Link href="/jokes">            
                 <Button maxWidth="280px">
                 Começar
                 </Button>

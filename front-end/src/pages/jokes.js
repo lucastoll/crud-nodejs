@@ -78,7 +78,7 @@ const CardWrapper = styled.div`
 }
 `
 
-export default function Piadas() {
+export default function Jokes() {
   const [searchBarContent, setSearchBarContent] = useState("");
   const [order, setOrder] = useState("");
   const [jokes, setJokes] = useState([])
@@ -142,7 +142,6 @@ export default function Piadas() {
               ))
               : ""
             }
-
             {
               order === "dislikes" ? 
               jokes
@@ -164,7 +163,6 @@ export default function Piadas() {
               ))
               : ""
             }
-
             {
               order === "" ? 
               jokes
@@ -185,8 +183,6 @@ export default function Piadas() {
               ))
               : ""
             }
-
-
             </CardWrapper>
           </LightBrownMobileWrapper>
         </ContainerStageBackgroundPiadas>
