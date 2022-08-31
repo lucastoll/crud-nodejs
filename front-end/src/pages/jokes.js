@@ -3,44 +3,10 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { v4 as uuidv4} from 'uuid'
 
-import { ContainerStageBackground } from "../components/Shared/ContainerStageBackground";
 import UtilsWrapper from "../components/UtilsWrapper";
-
-import c from "../../public/styles/colors.json";
 import Card from "../components/Card";
-
-const ContainerStageBackgroundPiadas = styled(ContainerStageBackground)`
-  height: 100vh;
-  padding: 0px;
-  overflow: hidden;
-
-  @media screen and (min-width: 1024px) {
-    padding: 65px 135px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding: 130px 270px;
-  }
-`;
-
-const LightBrownMobileWrapper = styled.div`
-  background: ${c.lightBrown};
-  width: 100%;
-  height: 100vh;
-  padding: 40px 30px;
-  color: black;
-  overflow: hidden;
-
-  @media screen and (min-width: 1024px) {
-    min-height: auto;
-    height: 100%;
-    border-radius: 30px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding: 60px 150px 60px 150px;
-  }
-`;
+import { ContainerStageBackgroundPiadas } from "../components/Shared/ContainerStageBackground";
+import { LightBrownMobileWrapper } from "../components/Shared/LightMobileWrapper";
 
 const CardWrapper = styled.div`
   display: flex;

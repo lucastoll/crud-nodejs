@@ -17,7 +17,7 @@ export default function UtilsWrapper({searchBarContent, setSearchBarContent, ord
         ></Searchbar>
         <div className='popoverButtonContainer'>
         <Popover order={order} setOrder={setOrder} jokes={jokes} setJokes={setJokes} /> 
-        <Link href="/">
+        <Link href="/newJoke">
           <Button width="50%" backgroundColor="#CD1C2F">
               Criar piada
           </Button>

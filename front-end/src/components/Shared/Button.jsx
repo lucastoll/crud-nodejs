@@ -16,3 +16,15 @@ export const Button = styled.button`
     max-width: ${props => props.maxWidth ? props.maxWidth : "100%"};
   }
 `
+
+export const ButtonNewJoke = styled(Button)`
+  font-size: 14px;
+  padding: 17px 0;
+`
+
+export const ButtonCancelJoke = styled(ButtonNewJoke)`
+  color: ${c.primary};
+  background: ${c.white};
+  border: 1px solid ${c.primary};
+  padding: 17px 0;
+`

@@ -7,6 +7,7 @@ export const Frame = styled.div`
   width: 100%;
   height: 100%;
   background: ${c.lightBrown};
+  box-shadow: 0px 20px 50px 0px #00000026;
   border-radius: 30px;
   padding: 40px 32px;
 

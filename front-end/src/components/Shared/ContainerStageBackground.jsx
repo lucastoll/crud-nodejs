@@ -22,3 +22,21 @@ export const ContainerStageBackground = styled.div`
     background-size: cover;
   }
 `;
+
+export const ContainerStageBackgroundPiadas = styled(ContainerStageBackground)`
+  height: 100vh;
+  padding: 0px;
+  overflow: hidden;
+
+  @media screen and (min-width: 1024px) {
+    padding: 65px 135px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 130px 270px;
+  }
+`;
+
+export const ContainerStageBackgroundPiadasNewJoke = styled(ContainerStageBackgroundPiadas)`
+  height: 100%;
+`;
