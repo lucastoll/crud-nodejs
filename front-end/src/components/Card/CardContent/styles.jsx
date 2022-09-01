@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import c from "../../../public/styles/colors.json";
+import c from "../../../../public/styles/colors.json";
 
 export const Container = styled.div`
   width: 100%;
@@ -9,14 +9,14 @@ export const Container = styled.div`
   flex-direction: column;
   border-radius: 8px;
   box-shadow: 0px 4px 4px 0px #0000000D;
+`;
 
-  .titleDateWrapper{
-    display: flex;
+export const TitleDateWrapper = styled.div`
+    display: flex; 
     gap: 8px;
     justify-content: space-between;
     align-items: center;
-  }
-`;
+`
 
 export const CardTitle = styled.h2`
   color: ${c.primary};
@@ -50,12 +50,14 @@ export const CardInfos = styled.div`
   .author{
     color: #1668c3;
     line-height: 22px;
+    width: 200px;
   }
 
   .specialAuthor{
     color: #000000;
     font-family: "AvenirBlack";
     font-style: oblique;
+    width: 200px;
 
     span{
       text-decoration: underline;
