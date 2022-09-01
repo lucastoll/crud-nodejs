@@ -1,9 +1,13 @@
 var mysql = require('mysql');
 const express = require('express')
+const cors = require('cors');
+
 const app = express()
-const port = 3000
+const port = 3006
 
 app.use(express.json())
+app.use(cors())
+
 
 var db = mysql.createConnection({
   host: "localhost",
@@ -18,8 +22,8 @@ db.connect(function(err) {
   console.log("Connected!");
 });
 
-app.get('/getUsers', (req, res) => {
-    const sql = "SELECT * FROM usuarios";
+app.get('/getJokes', (req, res) => {
+    const sql = "SELECT * FROM piadas";
     db.query(sql, function(error, data, fields){
         if (error) throw error;
         res.json({
@@ -31,44 +35,45 @@ app.get('/getUsers', (req, res) => {
 })
 
 
-app.post('/createUser', (req, res) => {
-  const sql = "INSERT INTO usuarios(nome, email) VALUES (?)";
-  const usuario = [req.body.nome, req.body.email]
+app.post('/createJoke', (req, res) => {
+  const sql = "INSERT INTO piadas(titulo, piada, autor, likes, dislikes) VALUES (?)";
+  const { titulo } = req.body; 
+  const joke = [req.body.titulo, req.body.piada, req.body.autor, req.body.likes, req.body.dislikes];
 
-  db.query(sql, [usuario], function(error, data, fields){
-    if (error) throw error;
+  db.query(sql, [joke], function(error, data, fields){
+    //if (error) throw error;
     res.json({
         "status": 201,
-        "message": "User registered with success."
+        "message": "Joke registered with success."
     })
 })
 })
-
-app.put('/updateUser', (req, res) => {
+ 
+app.put('/updateJoke', (req, res) => {
   const updateValues = [req.body.attributeName, req.body.attributeValue, req.body.id]
-  const sql = `UPDATE usuarios SET ${updateValues[0]}='${updateValues[1]}' WHERE id=${updateValues[2]}`;
+  const sql = `UPDATE piadas SET ${updateValues[0]}='${updateValues[1]}' WHERE id=${updateValues[2]}`;
 
   db.query(sql, [updateValues], function(error, data, fields){
     if (error) throw error;
     res.json({
         "status": 200,
-        "message": "User updated with success."
+        "message": "Joke updated with success."
     })
 })
 })
 
-app.delete('/deleteUser', (req, res) => {
-  const updateValues = [req.body.id]
-  const sql = 'DELETE FROM usuarios WHERE id=?';
+app.delete('/deleteJoke/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = 'DELETE FROM piadas WHERE id=?';
 
-  db.query(sql, [updateValues], function(error, data, fields){
+  db.query(sql, [id], function(error, data, fields){
     if (error) throw error;
     res.json({
         "status": 200,
-        "message": "User deleted with success."
+        "message": "Joke deleted with success."
     })
 })
-})
+}) 
   
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
