@@ -72,6 +72,7 @@ export default function NewJoke() {
         likes: 0,
         dislikes: 0
     }).then((response) => {
+        console.log(response);
         router.push('/jokes')
     })
   }

@@ -64,6 +64,26 @@ export default function Jokes() {
       });
   }
 
+  function filterParams(val) {
+    if (searchBarContent === "") {
+      return val;
+    } else if (
+      val.titulo.toLowerCase().includes(searchBarContent.toLowerCase()) ||
+      val.piada.toLowerCase().includes(searchBarContent.toLowerCase()) || 
+      val.autor.toLowerCase().includes(searchBarContent.toLowerCase()) 
+    ) {
+      return val;
+    }
+    return 0;
+  }
+
+  function sortParams(a, b){
+    if(order === "likes"){
+      return a.likes < b.likes ? 1 : -1
+    }
+    else if(order === "dislikes")
+      return a.dislikes < b.dislikes ? 1 : -1
+  }
   
   return (
     <div>
@@ -83,71 +103,15 @@ export default function Jokes() {
               setSearchBarContent={setSearchBarContent}
               order={order}
               setOrder={setOrder}
-              jokes={jokes}
-              setJokes={setJokes}
             />
             <CardWrapper>
             {
-              order === "likes" ? 
               jokes
-              .sort( (a, b) => a.likes < b.likes ? 1 : -1)
-              .filter((val) => {
-                if (searchBarContent === "") {
-                  return val;
-                } else if (
-                  val.titulo.toLowerCase().includes(searchBarContent.toLowerCase()) ||
-                  val.piada.toLowerCase().includes(searchBarContent.toLowerCase()) || 
-                  val.autor.toLowerCase().includes(searchBarContent.toLowerCase()) 
-                ) {
-                  return val;
-                }
-                return 0;
-              })
+              .sort(sortParams)
+              .filter(filterParams)
               .map((data) => (
                 <Card data={data} key={uuidv4()} />
               ))
-              : ""
-            }
-            {
-              order === "dislikes" ? 
-              jokes
-              .sort( (a, b) => a.dislikes < b.dislikes ? 1 : -1)
-              .filter((val) => {
-                if (searchBarContent === "") {
-                  return val;
-                } else if (
-                  val.titulo.toLowerCase().includes(searchBarContent.toLowerCase()) ||
-                  val.piada.toLowerCase().includes(searchBarContent.toLowerCase()) || 
-                  val.autor.toLowerCase().includes(searchBarContent.toLowerCase()) 
-                ) {
-                  return val;
-                }
-                return 0;
-              })
-              .map((data) => (
-                <Card data={data} key={uuidv4()} />
-              ))
-              : ""
-            }
-            {
-              order === "" ? 
-              jokes
-              .filter((val) => {
-                if (searchBarContent === "") {
-                  return val;
-                } else if (
-                  val.titulo.toLowerCase().includes(searchBarContent.toLowerCase()) ||
-                  val.piada.toLowerCase().includes(searchBarContent.toLowerCase()) || 
-                  val.autor.toLowerCase().includes(searchBarContent.toLowerCase()) 
-                ) {
-                  return val;
-                }
-                return 0;
-              })
-              .map((data) => (
-                <Card data={data} key={uuidv4()} />
-              ))
-              : ""
             }
             </CardWrapper>
           </LightBrownMobileWrapper>

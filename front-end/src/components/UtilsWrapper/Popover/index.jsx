@@ -59,7 +59,7 @@ import OrderIcon from "../../../../public/components/Popover/OrderIcon.png";
   `;
 
   
-export default function Popover({order, setOrder, jokes, setJokes}) {
+export default function Popover({order, setOrder}) {
   
   return (
     <PopoverContainer style={{width: "100%"}}>
@@ -68,11 +68,11 @@ export default function Popover({order, setOrder, jokes, setJokes}) {
         </PopoverTrigger>
         <PopoverContent>
             <div>
-                <input type="radio" name="orderRadio" value="likes" onChange={(event) => setOrder(event.target.value)} />
+                <input type="radio" name="orderRadio" value="likes" checked={order === "likes" ? true : false} onChange={(event) => setOrder(event.target.value)} />
                 <p>Likes</p>
             </div>
             <div>
-                <input type="radio" name="orderRadio" value="dislikes" onChange={(event) => setOrder(event.target.value)} />
+                <input type="radio" name="orderRadio" value="dislikes" checked={order === "dislikes" ? true : false} onChange={(event) => setOrder(event.target.value)} />
                 <p>Deslikes</p>
             </div>
         </PopoverContent>

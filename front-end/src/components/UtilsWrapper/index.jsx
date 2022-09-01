@@ -6,7 +6,7 @@ import Popover from './Popover';
 import { Searchbar, Wrapper } from './styles';
 
 
-export default function UtilsWrapper({searchBarContent, setSearchBarContent, order, setOrder, jokes, setJokes}) {
+export default function UtilsWrapper({searchBarContent, setSearchBarContent, order, setOrder}) {
   return (
     <Wrapper>
         <Searchbar
@@ -16,7 +16,7 @@ export default function UtilsWrapper({searchBarContent, setSearchBarContent, ord
         onChange={(event) => setSearchBarContent(event.target.value)}
         ></Searchbar>
         <div className='popoverButtonContainer'>
-        <Popover order={order} setOrder={setOrder} jokes={jokes} setJokes={setJokes} /> 
+        <Popover order={order} setOrder={setOrder} /> 
         <Link href="/newJoke">
           <Button width="50%" backgroundColor="#CD1C2F">
               Criar piada
