@@ -8,11 +8,12 @@ connectDB(); // Tenta se conectar com o banco de dados
 
 const app = express(); // Cria nosso aplicativo
 
+// Define que o objeto de requisição recebida será no formato de um objeto JSON.
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: false}));
 
-// Criação de uma rota simples de testes
-app.get('/api/cars', (req, res) => {
-    res.json({ message: 'Get Cars' }); // Retorna uma mensagem ao cliente quando a rota é acessada através do método GET
-});
+// Define que a rota /api/cars terá as seguintes rotas declaradas em carRoutes.js
+app.use('/api/cars', require('./routes/carRoutes.JS'));
 
 // O método se vincula ao host e a porta especificada para vincular e ouvir qualquer conexão
 app.listen(port, () => console.log(`listening on port ${port}`))
