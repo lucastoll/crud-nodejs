@@ -65,7 +65,7 @@ export default function NewJoke() {
     event.preventDefault();
     const data = new FormData(event.target);
 
-    Axios.post("http://localhost:3006/createJoke", {
+    Axios.post("http://localhost:5000/api/piadas", {
         titulo: data.get('title'),
         piada: data.get('joke'),
         autor: data.get('author'),
