@@ -111,7 +111,7 @@ export default function Jokes() {
               .sort(sortParams)
               .filter(filterParams)
               .map((data) => (
-                <Card data={data} key={uuidv4()} />
+                <Card data={data} fetchData={fetchData} key={uuidv4()} />
               ))
             }
             </CardWrapper>

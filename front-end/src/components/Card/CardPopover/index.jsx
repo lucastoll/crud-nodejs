@@ -5,6 +5,8 @@ import c from "../../../../public/styles/colors.json"
 import { Button } from '../../Shared/Button';
 import CardContent from '../CardContent';
 
+import Axios from "axios";
+
 const MyModal = styled.div`
   width: 100vw;
   height: 100vh;
@@ -79,7 +81,7 @@ const CardPopoverButtons = styled.div`
   }
 `
 
-export default function CardPopover({data, closeModal, animateModal}) {
+export default function CardPopover({data, closeModal, animateModal, fetchData}) {
     React.useEffect(() => {
     document.addEventListener("click", (e) => {
         if (e.target.id == "containerpopup" || e.target.id == "botaopopup")
@@ -94,16 +96,48 @@ export default function CardPopover({data, closeModal, animateModal}) {
     };
     }, [closeModal]);
 
+    function addLike(){  
+      Axios.put(`http://localhost:5000/api/piadas/${data._id}`, {
+          titulo: data.titulo,
+          piada: data.piada,
+          autor: data.autor,
+          likes: data.likes + 1,
+      }).then((response) => {
+          console.log(response);  
+          fetchData("api/piadas");    
+      })
+    }
+
+    function addDeslike(){  
+      Axios.put(`http://localhost:5000/api/piadas/${data._id}`, {
+          titulo: data.titulo,
+          piada: data.piada,
+          autor: data.autor,
+          dislikes: data.dislikes + 1
+      }).then((response) => {
+          console.log(response);  
+          fetchData("api/piadas");    
+      })
+    }
+
+    function deleteJoke(){  
+      Axios.delete(`http://localhost:5000/api/piadas/${data._id}`)
+      .then((response) => {
+          console.log(response);  
+          fetchData("api/piadas");    
+      })
+    }
+
   return (
     <MyModal id="containerpopup" animateModal={animateModal}>
       <div className="modal">
         <CardContent data={data} />
         <CardPopoverButtons>
           <div>
-            <Button backgroundColor={c.green} maxWidth="154px">Chorei</Button>
-            <Button maxWidth="154px">Nem ri</Button>
+            <Button id="botaopopup" onClick={addLike} backgroundColor={c.green} maxWidth="154px">Chorei</Button>
+            <Button id="botaopopup" onClick={addDeslike} maxWidth="154px">Nem ri</Button>
           </div>
-          <span>Denunciar</span>
+          <span onClick={deleteJoke} id="botaopopup">Denunciar</span>
         </CardPopoverButtons>
       </div>
     </MyModal>
