@@ -5,6 +5,8 @@ import c from "../../../../public/styles/colors.json"
 import { Button } from '../../Shared/Button';
 import CardContent from '../CardContent';
 
+import Axios from "axios";
+
 const MyModal = styled.div`
   width: 100vw;
   height: 100vh;
@@ -79,7 +81,7 @@ const CardPopoverButtons = styled.div`
   }
 `
 
-export default function CardPopover({data, closeModal, animateModal}) {
+export default function CardPopover({data, closeModal, animateModal, fetchData}) {
     React.useEffect(() => {
     document.addEventListener("click", (e) => {
         if (e.target.id == "containerpopup" || e.target.id == "botaopopup")
@@ -94,16 +96,46 @@ export default function CardPopover({data, closeModal, animateModal}) {
     };
     }, [closeModal]);
 
+    function addLike(){
+      Axios.put("http://localhost:3006/updateJoke", {
+        attributeName: "likes",
+        attributeValue: data.likes + 1,
+        id: data.id
+    }).then((response) => {
+        fetchData("getJokes");
+        console.log(response);
+    })
+    }
+
+    function addDislike(){
+      Axios.put("http://localhost:3006/updateJoke", {
+        attributeName: "dislikes",
+        attributeValue: data.dislikes + 1,
+        id: data.id
+    }).then((response) => {
+        fetchData("getJokes");
+        console.log(response);
+    })
+    }
+
+    function deleteJoke(){
+      Axios.delete(`http://localhost:3006/deleteJoke/${data.id}`)
+      .then((response) => {
+        fetchData("getJokes");
+        console.log(response);
+    })
+    }
+
   return (
     <MyModal id="containerpopup" animateModal={animateModal}>
       <div className="modal">
         <CardContent data={data} />
         <CardPopoverButtons>
           <div>
-            <Button backgroundColor={c.green} maxWidth="154px">Chorei</Button>
-            <Button maxWidth="154px">Nem ri</Button>
+            <Button id="botaopopup" onClick={addLike} backgroundColor={c.green} maxWidth="154px">Chorei</Button>
+            <Button id="botaopopup" onClick={addDislike} maxWidth="154px">Nem ri</Button>
           </div>
-          <span>Denunciar</span>
+          <span id="botaopopup" onClick={deleteJoke}>Denunciar</span>
         </CardPopoverButtons>
       </div>
     </MyModal>

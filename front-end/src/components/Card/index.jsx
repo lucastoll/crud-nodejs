@@ -4,7 +4,7 @@ import CardContent from "./CardContent";
 import { Container } from "./CardContent/styles";
 import CardPopover from "./CardPopover";
 
-export default function Card({data}) {
+export default function Card({data, fetchData}) {
   const [showModal, setShowModal] = React.useState(false);
   const [animateModal, setAnimateModal] = React.useState(true);
   const [enableShowModalButton, setEnableShowModalButton] = React.useState(true);
@@ -29,7 +29,7 @@ export default function Card({data}) {
 
   return (
     <>
-      {showModal && (<CardPopover data={data} closeModal={closeModal} animateModal={animateModal}/>)}
+      {showModal && (<CardPopover data={data} fetchData={fetchData} closeModal={closeModal} animateModal={animateModal}/>)}
       <Container onClick={enableShowModalButton === true ? openModal : undefined}>
         <CardContent data={data} />
       </Container>
