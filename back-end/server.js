@@ -1,5 +1,7 @@
 const express = require('express'); // Web Framework
 const dotenv = require('dotenv').config(); // Nos permite usar nossas variáveis de ambiente que criamos no arquivo .env
+const cors = require('cors');
+
 
 const port = process.env.PORT || 5000;
 
@@ -10,6 +12,7 @@ const app = express(); // Cria nosso aplicativo
 
 // Define que o objeto de requisição recebida será no formato de um objeto JSON.
 app.use(express.json()); 
+app.use(cors());
 app.use(express.urlencoded({ extended: false}));
 
 // Define que a rota /api/piadas terá as seguintes rotas declaradas em carRoutes.js
