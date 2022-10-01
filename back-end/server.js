@@ -12,8 +12,8 @@ const app = express(); // Cria nosso aplicativo
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: false}));
 
-// Define que a rota /api/cars terá as seguintes rotas declaradas em carRoutes.js
-app.use('/api/cars', require('./routes/carRoutes.JS'));
+// Define que a rota /api/piadas terá as seguintes rotas declaradas em carRoutes.js
+app.use('/api/piadas', require('./routes/piadaRoutes.js'));
 
 // O método se vincula ao host e a porta especificada para vincular e ouvir qualquer conexão
 app.listen(port, () => console.log(`listening on port ${port}`))
