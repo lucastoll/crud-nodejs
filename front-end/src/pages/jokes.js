@@ -56,7 +56,7 @@ export default function Jokes() {
   }, [jokes])
 
   function fetchData(url) {
-    Axios.get(`http://localhost:5000/${url}`)
+    Axios.get(`https://crud-nodejs-cfz6m.ondigitalocean.app/${url}`)
       .then(response => {
         return response;
       })

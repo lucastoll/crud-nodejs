@@ -97,7 +97,7 @@ export default function CardPopover({data, closeModal, animateModal, fetchData})
     }, [closeModal]);
 
     function addLike(){  
-      Axios.put(`http://localhost:5000/api/piadas/${data._id}`, {
+      Axios.put(`https://crud-nodejs-cfz6m.ondigitalocean.app/api/piadas/${data._id}`, {
           titulo: data.titulo,
           piada: data.piada,
           autor: data.autor,
@@ -109,7 +109,7 @@ export default function CardPopover({data, closeModal, animateModal, fetchData})
     }
 
     function addDeslike(){  
-      Axios.put(`http://localhost:5000/api/piadas/${data._id}`, {
+      Axios.put(`https://crud-nodejs-cfz6m.ondigitalocean.app/api/piadas/${data._id}`, {
           titulo: data.titulo,
           piada: data.piada,
           autor: data.autor,
@@ -121,7 +121,7 @@ export default function CardPopover({data, closeModal, animateModal, fetchData})
     }
 
     function deleteJoke(){  
-      Axios.delete(`http://localhost:5000/api/piadas/${data._id}`)
+      Axios.delete(`https://crud-nodejs-cfz6m.ondigitalocean.app/api/piadas/${data._id}`)
       .then((response) => {
           console.log(response);  
           fetchData("api/piadas");    
