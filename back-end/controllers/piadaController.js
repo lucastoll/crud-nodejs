@@ -1,6 +1,5 @@
 // Importa o Schema da collection car
 const Piada = require('../models/piadasModel');
-console.log(Piada.model)
 
 //Controlador manipula os schemas definidos nos models, o controlador contém todos os acessos crud
 
@@ -10,11 +9,7 @@ console.log(Piada.model)
 
 const setPiada = async (req, res) => {
     // Verifica se o campo model está definido
-    console.log(req.body)
-    /*if(!req.body.model) {
-        res.status(400);
-        throw new Error("Por favor adicione um modelo");
-    }*/
+    console.log(req)
 
     // Cria um novo registro para collection piada
     const piada = await Piada.create({
@@ -60,7 +55,7 @@ const updatePiada = async (req, res) => {
             new: true,
         }
     );
-		// Retorna uma mensagem do resultado da atualização
+    // Retorna uma mensagem do resultado da atualização
     res.status(200).json(updatedPiada);
 }
 
@@ -78,7 +73,7 @@ const deletePiada = async (req, res) => {
     }
 
     // Remove o registro encontrado
-    await piada.remove()
+    await piada.remove();
     res.status(200).json({ id: req.params.id, message: "Piada removida com sucesso" })
 }
 
@@ -86,5 +81,5 @@ module.exports = {
     getPiadas,
     setPiada,
     updatePiada,
-    deletePiada,
+    deletePiada
 }
