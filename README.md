@@ -49,7 +49,7 @@ Neste readme será explicado sobre as pastas config, controllers, models, routes
   <li>config</li>
 </ul>
 
-Dentro da config existe o db.js onde é configurada a conexão da aplicação com o banco de dados, para isto é utilizado o login e a senha do mongodb, assim como hash do banco disponibilizada na plataforma do MongoDB
+Dentro da config existe o db.js onde é configurada a conexão da aplicação com o banco de dados, para isto é utilizado o login e a senha do mongodb, assim como o hash do banco disponibilizada na plataforma do MongoDB
 ![image](https://user-images.githubusercontent.com/86172649/207132359-46357db0-79ce-4290-8970-4cefbad02f1a.png)
 
 <ul>
@@ -116,3 +116,7 @@ $ npm run server
 ```
 
 ![image](https://user-images.githubusercontent.com/86172649/207116366-46f5bd63-6aab-4af6-895c-d5d823e60e0f.png)
+
+## Agradecimentos
+
+Agradeço muito ao <a href="https://github.com/Rafael-Araujo-dev" target="_blank">Rafael Araujo</a> pela ajuda no desenvolvimento e nos conceitos do MongoDB, valeu rafinha!!!
