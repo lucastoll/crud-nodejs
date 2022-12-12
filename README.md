@@ -115,8 +115,6 @@ $ npm install
 $ npm run server
 ```
 
-![image](https://user-images.githubusercontent.com/86172649/207116366-46f5bd63-6aab-4af6-895c-d5d823e60e0f.png)
-
 ## 🎉 Agradecimentos
 
 Agradeço muito ao <a href="https://github.com/Rafael-Araujo-dev" target="_blank">Rafael Araujo</a> pela ajuda no desenvolvimento e no entendimento dos conceitos do MongoDB, valeu rafinha!!!
