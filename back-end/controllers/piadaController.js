@@ -1,4 +1,4 @@
-// Importa o Schema da collection car
+// Importa o Schema da collection piada
 const Piada = require('../models/piadasModel');
 
 //Controlador manipula os schemas definidos nos models, o controlador contém todos os acessos crud
@@ -27,7 +27,7 @@ const setPiada = async (req, res) => {
 // @access  Private
 
 const getPiadas = async (req, res) => {
-    // Busca todos os dados na collection car
+    // Busca todos os dados na collection piada
     const piadas = await Piada.find();
 
     // Exibe os resultado da busca
