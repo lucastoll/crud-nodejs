@@ -130,6 +130,7 @@ $ yarn
 $ yarn dev 
 ```
 
-![image](https://user-images.githubusercontent.com/86172649/207116366-46f5bd63-6aab-4af6-895c-d5d823e60e0f.png)
+## 🎉 Agradecimentos
 
+Agradeço muito ao <a href="https://github.com/vicentepcamargo" target="_blank">Vicente</a> e ao <a href="https://github.com/EduardooPV" target="_blank">Luiz Eduardo</a> pela ajuda no desenvolvimento do projeto e no entendimento dos conceitos de SQL e Back-end em geral.
 
