@@ -119,4 +119,4 @@ $ npm run server
 
 ## 🎉 Agradecimentos
 
-Agradeço muito ao <a href="https://github.com/Rafael-Araujo-dev" target="_blank">Rafael Araujo</a> pela ajuda no desenvolvimento e nos conceitos do MongoDB, valeu rafinha!!!
+Agradeço muito ao <a href="https://github.com/Rafael-Araujo-dev" target="_blank">Rafael Araujo</a> pela ajuda no desenvolvimento e no entendimento dos conceitos do MongoDB, valeu rafinha!!!
